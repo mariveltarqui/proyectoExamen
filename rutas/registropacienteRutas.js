@@ -119,5 +119,16 @@ rutas.get('/contarRegistro', async (req, res) => {
     }
 });
 
+//// endpoint10  - contar todos lo propietarios de apellido materno
+rutas.get('/encontrarRegistro', async (req, res) => {
+    try {
+        const encontrarRegistro1 = await RegistropacienteModel.where('sexo', /^h/i);
+        //db.sales.aggregate([ { $match: { amount: { $gt: 100 } } } ])
+        return res.json(encontrarRegistro1);
+    } catch(error) {
+        res.status(500).json({ mensaje :  error.message})
+    }
+});
+
 
 module.exports = rutas;
