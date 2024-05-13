@@ -61,8 +61,63 @@ rutas.delete('/eliminarRegistro/:id', async (req, res) =>{
         res.status(500).json({ mensaje : error.mensaje})
     }
 
-})
+});
+// endpoint 5. BUSQUEDAS1: obtener el dato de la mascota entre 1 a 5 años segun la especie
+rutas.get('/registroBusqueda/:especie', async (req, res) => {
+    try {
+      //const registroBusqueda = await RegistropacienteModel.find({ especie: req.params.especie, edad: {$gte: 1, $lte: 5 }});     
+      const registroBusqueda = await RegistropacienteModel.find({ especie: req.params.especie, edad: {$eq: 5}});
+      if(!registroBusqueda)
+            return res.status(404).json({ mensaje : 'Registro no encontrado!'});
+        else 
+            return res.json(registroBusqueda);
+    } catch(error) {
+        res.status(500).json({ mensaje : error.message})
+    }
+});
+// endpoint 6. BUSQUEDAS2: obtener el primer dato de la mascota segun la especie
+rutas.get('/registrosBusqueda/:especie', async (req, res) => {
+    try {
+      const registrosBusqueda =  await RegistropacienteModel.findOne({ especie: req.params.especie });
+       
+        if (!registrosBusqueda)
+            return res.status(404).json({ mensaje : 'Registro no encontrado!'});
+        else 
+            return res.json(registrosBusqueda);
+    } catch(error) {
+        res.status(500).json({ mensaje : error.message})
+    }
+});
 
+//  endpoint7- obtener registro ordenado por edad de la mascota en forma ascendente
+rutas.get('/ordenarRegistro', async (req, res) => {
+    try {
+       const registroOrdenado = await RegistropacienteModel.find().sort({ nombre_mascota: 1, edad: 1});
+       res.status(200).json(registroOrdenado);
+    } catch(error) {
+        res.status(500).json({ mensaje :  error.message})
+    }
+});
+
+//  endpoint8- obtener registro ordenado de la edad de todos los de la especie= canino
+rutas.get('/ordenarRegistros', async (req, res) => {
+    try {
+        const registrosOrdenado = await RegistropacienteModel.find({especie:/^c/}).sort({edad:1});
+       res.status(200).json(registrosOrdenado);
+    } catch(error) {
+        res.status(500).json({ mensaje :  error.message})
+    }
+});
+
+// endpoint9  - contar todos lo propietarios de apellido materno
+rutas.get('/contarRegistro', async (req, res) => {
+    try {
+        const valoMaximoEdad1 = await RegistropacienteModel.countDocuments({apellido_materno: 'Perez'});
+        return res.json(valoMaximoEdad1);
+    } catch(error) {
+        res.status(500).json({ mensaje :  error.message})
+    }
+});
 
 
 module.exports = rutas;

@@ -1,0 +1,21 @@
+//UNIVERSIDAD ADVENTISTA DE BOLIVIA 
+//COMPL. INGENIERÍA DE SISTEMAS
+//Sistema de registro de pacientes de la veterinaria “Jack Spa”
+//Estudiante: 	     Maribel Mamani Tarqui
+//Docente:      	 Lic. Ximena Añaguaya
+//Materia:           Taller de Aplicación de Internet
+
+//Debido a la cantidad de consultas médicas en  la veterinaria que se realizan, con un proceso
+// manual de registro de información de la mascota y el propietarios es ineficiente para tener un
+//control de los registros provoca una deficiente organización y ocasionando duplicidad de datos
+//y limitando información de reporte de los registros y seguimiento de la veterinaria Jack Spa, 
+//al mismo tiempo  que los historiales clinicos, pero solo ser abordara el registro de mascotas 
+//y propietarios para la tarea.
+//Objetivo General:
+//Implementar un sistema de registro de pacientes e historiales clínicos,
+ //que permita realizar el seguimiento y control en los, resgistros y antecedentes clínicos 
+ //de los pacientes de la veterinaria, que ayudará en el registro y en un mejor 
+ //manejo de la información de la veterinaria Jack Spa.
+ //Objetivos Específicos:
+//Implementar un módulo de registro que permita almacenar la información de las mascotas y propietarios
+
