@@ -119,12 +119,11 @@ rutas.get('/contarRegistro', async (req, res) => {
     }
 });
 
-//// endpoint10  - contar todos lo propietarios de apellido materno
+//// endpoint10  - contar todos las mascotas que sean "hembra"
 rutas.get('/encontrarRegistro', async (req, res) => {
     try {
-        const encontrarRegistro1 = await RegistropacienteModel.where('sexo', /^h/i);
-        //db.sales.aggregate([ { $match: { amount: { $gt: 100 } } } ])
-        return res.json(encontrarRegistro1);
+        const encontrarRegistroH = await RegistropacienteModel.where('sexo', /^h/i);
+        return res.json(encontrarRegistroH);
     } catch(error) {
         res.status(500).json({ mensaje :  error.message})
     }
