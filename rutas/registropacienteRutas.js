@@ -62,7 +62,7 @@ rutas.delete('/eliminarRegistro/:id', async (req, res) =>{
     }
 
 });
-// endpoint 5. BUSQUEDAS1: obtener el dato de la mascota entre 1 a 5 años segun la especie
+// endpoint 5. BUSQUEDAS1: obtener el dato de la mascota de 5 años segun la especie
 rutas.get('/registroBusqueda/:especie', async (req, res) => {
     try {
       //const registroBusqueda = await RegistropacienteModel.find({ especie: req.params.especie, edad: {$gte: 1, $lte: 5 }});     
@@ -89,7 +89,7 @@ rutas.get('/registrosBusqueda/:especie', async (req, res) => {
     }
 });
 
-//  endpoint7- obtener registro ordenado por edad de la mascota en forma ascendente
+//  endpoint7- obtener registro ordenado por nombre y edad de la mascota en forma ascendente
 rutas.get('/ordenarRegistro', async (req, res) => {
     try {
        const registroOrdenado = await RegistropacienteModel.find().sort({ nombre_mascota: 1, edad: 1});
@@ -119,7 +119,7 @@ rutas.get('/contarRegistro', async (req, res) => {
     }
 });
 
-//// endpoint10  - contar todos las mascotas que sean "hembra"
+///// endpoint10  - contar todos las mascotas que sean "hembra"
 rutas.get('/encontrarRegistro', async (req, res) => {
     try {
         const encontrarRegistroH = await RegistropacienteModel.where('sexo', /^h/i);
