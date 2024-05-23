@@ -12,7 +12,10 @@ const RegistropacienteSchema = new mongoose.Schema({
     especie: String,
     edad: Number,
     raza: String,
-    sexo: String
+    sexo: String,
+    //usuario: { type: mongoose.Schema.Types.ObjectId, ref: 'usuario'}
+    //historial: { type: mongoose.Schema.Types.ObjectId, ref: 'historial'}
+    
 });
 
 const RegistropacienteModel = mongoose.model('Registropaciente',RegistropacienteSchema  , 'registropaciente');

@@ -23,8 +23,10 @@ rutas.post('/crearRegistro',async (req, res)=> {
         especie: req.body.especie,
         edad: req.body.edad,
         raza: req.body.raza,
-        sexo: req.body.sexo
-    })
+        sexo: req.body.sexo,
+        //usuario: req.usuario._id 
+        ///historial: req.historial._id
+    });
     
     try {
         const nuevaRegistro = await registro.save();
